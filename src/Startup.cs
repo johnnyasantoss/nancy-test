@@ -7,7 +7,7 @@ namespace NancyTest
     {
         public void Configure(IApplicationBuilder app)
         {
-            app.UseOwin(x => x.UseNancy());
+            app.UseOwin(x => x.UseNancy(opt => opt.Bootstrapper = new Bootstrapper()));
         }
     }
 }

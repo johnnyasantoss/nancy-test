@@ -1,12 +1,13 @@
 ﻿using Nancy;
+using NancyTest.Model;
 
 namespace NancyTest.Modules
 {
-    public class HelloModule : NancyModule
+    public sealed class HelloModule : NancyModule
     {
         public HelloModule()
         {
-            Get["Hello world", "/"] = ctx => "hello world!";
+            Get("/", _ => Negotiate.WithModel(new Message { Msg = "Hello World!" }));
         }
     }
 }
